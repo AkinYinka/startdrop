@@ -1,7 +1,30 @@
 Rails.application.routes.draw do
   get 'landings/index'
 
+  devise_for :companies, controllers: {registrations: "companies/registrations", sessions: "companies/sessions", passwords: "companies/passwords"}, skip: [:sessions, :registrations]
   devise_for :users, controllers: {registrations: "users/registrations", sessions: "users/sessions", passwords: "users/passwords", omniauth_callbacks: "users/omniauth_callbacks"}, skip: [:sessions, :registrations]
+  resources :users do
+    resources :submissions
+  end 
+
+  resources :companies do
+    resources :jobs do
+      resources :submissions
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :companies do
+        resources :jobs do
+          resources :submissions
+        end
+      end
+      resources :users do
+        resources :submissions
+      end   
+    end
+  end 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -68,5 +91,15 @@ Rails.application.routes.draw do
     put    "signup"  => "users/registrations#update", as: :update_user_registration
     get    "account" => "users/registrations#edit",   as: :edit_user_registration
   end
+  devise_scope :company do
+    get    "company/login"   => "companies/sessions#new",         as: :new_company_session
+    post   "company/login"   => "companies/sessions#create",      as: :company_session
+    delete "company/signout" => "companies/sessions#destroy",     as: :destroy_company_session
+    
+    get    "company/signup"  => "companies/registrations#new",    as: :new_company_registration
+    post   "company/signup"  => "companies/registrations#create", as: :company_registration
+    put    "company/signup"  => "companies/registrations#update", as: :update_company_registration
+    get    "company/account" => "companies/registrations#edit",   as: :edit_company_registration
+  end  
 
 end
