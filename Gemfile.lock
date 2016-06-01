@@ -25,6 +25,7 @@ GEM
       activesupport (= 4.1.4)
       builder (~> 3.1)
       erubis (~> 2.7.0)
+    active_hash_relation (1.1.0)
     active_model_serializers (0.10.0)
       actionpack (>= 4.0)
       activemodel (>= 4.0)
@@ -164,6 +165,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_hash_relation
   active_model_serializers
   bootstrap-sass (= 3.3.5)
   bootstrap-sass-extras

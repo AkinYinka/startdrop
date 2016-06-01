@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_company!
 
   # GET /jobs
   # GET /jobs.json
@@ -19,16 +20,18 @@ class JobsController < ApplicationController
 
   # GET /jobs/1/edit
   def edit
+    @company = Company.find(params[:company_id])
   end
 
   # POST /jobs
   # POST /jobs.json
   def create
     @job = Job.new(job_params)
-
+    @company = Company.find(params[:company_id])
+    @job.company = @company
     respond_to do |format|
       if @job.save
-        format.html { redirect_to @job, notice: 'Job was successfully created.' }
+        format.html { redirect_to company_job_path(id: @job.id), notice: 'Job was successfully created.' }
         format.json { render :show, status: :created, location: @job }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class JobsController < ApplicationController
   def update
     respond_to do |format|
       if @job.update(job_params)
-        format.html { redirect_to @job, notice: 'Job was successfully updated.' }
+        format.html { redirect_to company_jobs_path, notice: 'Job was successfully updated.' }
         format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
@@ -69,6 +72,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.fetch(:job, {})
+      params.require(:job).permit(:title, :description, :salary_range, :deadline, :tags)
     end
 end

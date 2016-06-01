@@ -1,17 +1,39 @@
-<%= form_for(@job) do |f| %>
-  <% if @job.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
-
-      <ul>
-      <% @job.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div>
+    <%= f.label :title, "", class: "control-label col-md-4" %>
+    <div class="col-md-8">
+      <%= f.text_field :title, :placeholder => 'Job Title', class: "text-field form-control", html: {spellcheck: "false"} %>
     </div>
-  <% end %>
+  </div>
+
+  <div>
+    <%= f.label :description, "", class: "control-label col-md-4" %>
+    <div class="col-md-8">
+      <%= f.text_area :description, :placeholder => 'Job Description', class: "text-area form-control", html: {spellcheck: "false"} %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :salary_range, "", class: "control-label col-md-4" %>
+    <div class="col-md-8">
+      <%= f.text_field :salary_range, :placeholder => 'Salary Range', class: "text-field form-control", html: {spellcheck: "false"} %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :deadline, "", class: "control-label col-md-4" %>
+    <div class="col-md-8">
+      <%= f.date_field :deadline %>
+    </div>
+  </div>  
+
+  <div>
+    <%= f.label :tags, "", class: "control-label col-md-4" %>
+    <div class="col-md-8">
+      <%= f.text_field :tags, :placeholder => 'Add tags to this Job', class: "text-field form-control", html: {spellcheck: "false"} %>
+    </div>
+  </div>  
 
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
+

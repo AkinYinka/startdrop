@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
+<%= @job.title %>
+<%= @job.description %>
+<%= @job.salary_range %>
+<%= @job.deadline %>
+<%= @job.tags %>
 
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+<%= link_to 'Edit', edit_company_job_path(id: @job.id) %> |
+<%= link_to 'Back', :back %>
