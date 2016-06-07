@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'landings/index'
 
   devise_for :companies, controllers: {registrations: "companies/registrations", sessions: "companies/sessions", passwords: "companies/passwords"}, skip: [:sessions, :registrations]
