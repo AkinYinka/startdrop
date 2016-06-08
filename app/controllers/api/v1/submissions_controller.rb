@@ -70,7 +70,7 @@ class Api::V1::SubmissionsController < Api::V1::BaseController
 
   def create_params
     params.require(:submission).permit(
-      :interview_videos, :status
+      :interview_videos, :status, {videos: []}
     ).delete_if{ |k,v| v.nil?}
   end
 

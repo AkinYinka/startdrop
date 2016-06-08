@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/carrierwaveuploader/carrierwave.git
+  revision: b31f7ce006bade550be0ad946d0b993b799358e3
+  specs:
+    carrierwave (0.11.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
+
+GIT
   remote: git://github.com/plataformatec/devise.git
   revision: cbbe932ee22947fb7fc741a4da3e6783091c88b0
   specs:
@@ -163,6 +172,7 @@ DEPENDENCIES
   active_hash_relation
   active_model_serializers
   bundler
+  carrierwave!
   coffee-rails (~> 4.0.0)
   devise!
   jbuilder (~> 2.0)

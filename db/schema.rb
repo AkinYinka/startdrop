@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525233815) do
+ActiveRecord::Schema.define(version: 20160608145545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20160525233815) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "job_id"
+    t.json     "videos"
   end
 
   add_index "submissions", ["job_id"], name: "index_submissions_on_job_id", using: :btree
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 20160525233815) do
     t.string   "intro_video"
     t.string   "resume"
     t.string   "tags"
+    t.json     "videos"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
