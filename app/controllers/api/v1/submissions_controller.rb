@@ -29,7 +29,7 @@ class Api::V1::SubmissionsController < Api::V1::BaseController
             location: api_v1_company_job_submissions_path(@job.id)
       )
     else
-      @user = User.find(params[:id])
+      @user = User.find(params[:user_id])
       submission = Submission.new(create_params)
       return api_error(status: 422, errors: submission.errors.full_messages) unless submission.valid?
 
@@ -39,6 +39,8 @@ class Api::V1::SubmissionsController < Api::V1::BaseController
             status: 201,
             location: api_v1_user_submissions_path(@user.id)
       )
+      render "success"
+  
     end
   end
 
@@ -69,9 +71,11 @@ class Api::V1::SubmissionsController < Api::V1::BaseController
   private
 
   def create_params
-    params.require(:submission).permit(
-      :interview_videos, :status
-    ).delete_if{ |k,v| v.nil?}
+    # params.require(:submission).permit(
+    #   :interview_videos, :status, {videos: []}
+    # ).delete_if{ |k,v| v.nil?}
+    params.permit(:videos)
+
   end
 
   def update_params
