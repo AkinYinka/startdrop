@@ -5,7 +5,8 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
+    @jobs = Job.where(company_id: params[:company_id])
+    @company = Company.find(params[:company_id])
   end
 
   # GET /jobs/1
@@ -68,7 +69,7 @@ class JobsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_job
       @job = Job.find(params[:id])
-      @company = Company.find(params[:id])
+      @company = Company.find(params[:company_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -11,6 +11,7 @@
 			<%= @job.deadline %>
 			<%= @job.tags %>
 
+			<%= link_to 'Evaluate Submissions', company_job_submissions_path(job_id: @job.id) %>
 			<%= link_to 'Edit', edit_company_job_path(id: @job.id) %> |
 			<%= link_to 'Back', :back %>			
 		</div>

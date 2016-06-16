@@ -16,14 +16,14 @@
             <ul id="nav" class="nav">
 
                 <li class="active">
-                    <%= link_to company_path do%>
+                    <%= link_to company_path(id: @company.id) do%>
                         <i class="pe-7s-graph"></i>
                         <p>Jobs Space</p>
                     <% end %>
                 </li>
 
                 <li>
-                    <%= link_to jobs_index_path do%>
+                    <%= link_to company_jobs_path(@company) do%>
                         <i class="pe-7s-graph"></i>
                         <p>Assessments</p>
                     <% end %>

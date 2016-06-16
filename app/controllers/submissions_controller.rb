@@ -1,11 +1,12 @@
 class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+
 
   # GET /submissions
   # GET /submissions.json
   def index
     @submissions = Submission.all
+    @company = Company.find(params[:company_id])
   end
 
   # GET /submissions/1

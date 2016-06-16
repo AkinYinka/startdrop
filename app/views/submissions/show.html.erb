@@ -1,4 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="wrapper">
+	<%= render 'companies/sidebar'%>
+	<div class="main-panel">
+		<%= render 'companies/navigation'%>
 
-<%= link_to 'Edit', edit_submission_path(@submission) %> |
-<%= link_to 'Back', submissions_path %>
+		<div class="content">
+			<p id="notice"><%= notice %></p>
+			<%= @submission.user %>
+			<%= video_tag @submission.videos %>
+			<%= link_to 'Edit', edit_company_job_submission_path(@submission) %> |
+			<%= link_to 'Back', company_job_submissions_path %>			
+		</div>
+
+		<%= render 'companies/footer'%>
+	</div>	
+
+</div>
+
