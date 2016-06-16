@@ -25,8 +25,11 @@ class SubmissionsController < ApplicationController
   # POST /submissions
   # POST /submissions.json
   def create
+    @user = User.find(params[:id])
+    @job = Job.find(params[:id])
     @submission = Submission.new(submission_params)
-
+    @submission.job = @job
+    @submission.user = @user
     respond_to do |format|
       if @submission.save
         format.html { redirect_to @submission, notice: 'Submission was successfully created.' }
@@ -70,6 +73,6 @@ class SubmissionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def submission_params
-      params.require(:submission).permit(:status, {videos: []})
+      params.require(:submission).permit(:status, :videos)
     end
 end

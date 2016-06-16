@@ -45,7 +45,7 @@ class JobsController < ApplicationController
   def update
     respond_to do |format|
       if @job.update(job_params)
-        format.html { redirect_to company_jobs_path, notice: 'Job was successfully updated.' }
+        format.html { redirect_to company_job_path(id: @job.id), notice: 'Job was successfully updated.' }
         format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
@@ -68,6 +68,7 @@ class JobsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_job
       @job = Job.find(params[:id])
+      @company = Company.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

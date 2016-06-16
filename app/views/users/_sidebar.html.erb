@@ -1,4 +1,3 @@
-
     <div class="sidebar" data-color="purple" data-image='<%= image_path('light_bootstrap_dashboard/sidebar-5.jpg') %>'>
 
     <!--
@@ -14,32 +13,29 @@
             </div>
 
             <ul id="nav" class="nav">
-
                 <li class="active">
-                    <%= link_to company_path do%>
+                    <a id="show_profile" href="#">
                         <i class="pe-7s-graph"></i>
-                        <p>Jobs Space</p>
-                    <% end %>
-                </li>
-
-                <li>
-                    <%= link_to jobs_index_path do%>
-                        <i class="pe-7s-graph"></i>
-                        <p>Assessments</p>
-                    <% end %>
+                        <p>Profile</p>
+                    </a>
                 </li>
                 <li>
-                    <a id="show_analytics" href="#">
+                    <a id="show_scheduled" href="#">
+                        <i class="pe-7s-user"></i>
+                        <p>Scheduled Interviews</p>
+                    </a>
+                </li>
+                <li>
+                    <a id="show_previous" href="#">
                         <i class="pe-7s-note2"></i>
-                        <p>Analytics</p>
+                        <p>Previous Interviews</p>
                     </a>
                 </li>
 
-
                 <li class="active-pro">
-                    <a href="upgrade.html">
+                    <a href="http://playstore.com">
                         <i class="pe-7s-rocket"></i>
-                        <p>Upgrade to PRO</p>
+                        <p>Upgrade to the DropQue App</p>
                     </a>
                 </li>
             </ul>

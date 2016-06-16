@@ -1,9 +1,20 @@
-<p id="notice"><%= notice %></p>
-<%= @job.title %>
-<%= @job.description %>
-<%= @job.salary_range %>
-<%= @job.deadline %>
-<%= @job.tags %>
+<div class="wrapper">
+	<%= render 'companies/sidebar'%>
+	<div class="main-panel">
+		<%= render 'companies/navigation'%>
 
-<%= link_to 'Edit', edit_company_job_path(id: @job.id) %> |
-<%= link_to 'Back', :back %>
+		<div class="content">
+			<p id="notice"><%= notice %></p>
+			<%= @job.title %>
+			<%= @job.description %>
+			<%= @job.salary_range %>
+			<%= @job.deadline %>
+			<%= @job.tags %>
+
+			<%= link_to 'Edit', edit_company_job_path(id: @job.id) %> |
+			<%= link_to 'Back', :back %>			
+		</div>
+		<%= render 'companies/footer'%>
+	</div>	
+
+</div>
