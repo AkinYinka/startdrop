@@ -17,20 +17,52 @@ ActiveRecord::Schema.define(version: 20160610130019) do
   enable_extension "plpgsql"
 
   create_table "companies", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.text     "description"
+    t.string   "location"
+    t.string   "tags"
   end
+
+  add_index "companies", ["email"], name: "index_companies_on_email", unique: true, using: :btree
+  add_index "companies", ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true, using: :btree
 
   create_table "jobs", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "salary_range"
+    t.datetime "deadline"
+    t.string   "tags"
+    t.json     "questions"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "company_id"
   end
 
+  add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
+
   create_table "submissions", force: true do |t|
+    t.string   "interview_videos"
+    t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "job_id"
     t.string   "videos"
   end
+
+  add_index "submissions", ["job_id"], name: "index_submissions_on_job_id", using: :btree
+  add_index "submissions", ["user_id"], name: "index_submissions_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -48,6 +80,14 @@ ActiveRecord::Schema.define(version: 20160610130019) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.string   "experience"
+    t.string   "education"
+    t.string   "location"
+    t.integer  "age"
+    t.string   "intro_video"
+    t.string   "resume"
+    t.string   "tags"
+    t.json     "videos"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
