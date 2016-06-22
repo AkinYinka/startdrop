@@ -1,5 +1,4 @@
 class CompaniesController < ApplicationController
-  layout '_base'
 
   def show
   	@company = Company.find(params[:id])
