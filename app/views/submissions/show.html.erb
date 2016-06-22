@@ -6,8 +6,8 @@
 		<div class="content">
 			<p id="notice"><%= notice %></p>
 			<%= @submission.user %>
-			<%= video_tag @submission.videos %>
-			<%= link_to 'Edit', edit_company_job_submission_path(@submission) %> |
+			<%= video_tag @submission.videos, size: "500x320", controls: true, autobuffer: true %>
+			<%= link_to 'Edit', edit_company_job_submission_path(id: @submission.id, job_id: @job.id) %> |
 			<%= link_to 'Back', company_job_submissions_path %>			
 		</div>
 

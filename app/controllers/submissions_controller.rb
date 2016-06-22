@@ -70,6 +70,9 @@ class SubmissionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_submission
       @submission = Submission.find(params[:id])
+      @company = Company.find(params[:company_id])
+      @job = Job.find(params[:job_id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

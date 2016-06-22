@@ -19,7 +19,7 @@ class Api::V1::SubmissionsController < Api::V1::BaseController
   def create
     if params[:job]
       @job = Job.find(params[:id])
-      submission = Submission.new(create_params)
+      submission = Submission.new(create_params.read)
       return api_error(status: 422, errors: submission.errors.full_messages) unless submission.valid?
 
       submission.save!
@@ -31,15 +31,17 @@ class Api::V1::SubmissionsController < Api::V1::BaseController
     else
       @user = User.find(params[:user_id])
       submission = Submission.new(create_params)
+      # submission = Submission.new(:videos => params[:videos])
+      
       return api_error(status: 422, errors: submission.errors.full_messages) unless submission.valid?
 
       submission.save!
-      render(
-            json: submission,
-            status: 201,
-            location: api_v1_user_submissions_path(@user.id)
-      )
-      render "success"
+      # render(
+      #       json: submission,
+      #       status: 201,
+      #       location: api_v1_user_submissions_path(@user.id)
+      # ) 
+      render plain: "success"
   
     end
   end

@@ -28,8 +28,10 @@ Rails.application.routes.draw do
           resources :submissions
         end
       end
-      resources :jobs, only: [:index, :show] do
-        resources :submissions
+      resources :users do
+        resources :jobs, only: [:index, :show] do
+          resources :submissions
+        end
       end
     end
   end 
