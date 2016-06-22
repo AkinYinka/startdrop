@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require light_bootstrap_dashboard
 //= require turbolinks
 
 

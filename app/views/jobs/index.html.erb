@@ -1,23 +1,13 @@
-<div class="wrapper">
-  <%= render 'companies/sidebar'%>
-  <div class="main-panel">
-    <%= render 'companies/navigation'%>
-    <div class="content">
-      <h1>Listing jobs</h1>
-          <% @jobs.each do |job| %>
-              <%= job.title %>
-              <%= link_to 'Show', company_job_path(id: job.id) %>
-              <%= link_to 'Edit', edit_company_job_path(id: job.id) %>
-              <%= link_to 'Destroy', company_job_path(id: job.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
+<h1>Listing jobs</h1>
+    <% @jobs.each do |job| %>
+        <%= job.title %>
+        <%= link_to 'Show', company_job_path(id: job.id) %>
+        <%= link_to 'Edit', edit_company_job_path(id: job.id) %>
+        <%= link_to 'Destroy', company_job_path(id: job.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
 
-      <br>
+<br>
 
-      <%= link_to 'New Job', new_company_job_path %>      
-    </div>
-    <%= render 'companies/footer'%>
-  </div>  
-
-</div>
+<%= link_to 'New Job', new_company_job_path %>
 
 

@@ -1,29 +1,17 @@
-<div class="wrapper">
-  <%= render 'companies/sidebar'%>
-  <div class="main-panel">
-    <%= render 'companies/navigation'%>
-    <div class="content">
-      <h1>Editing job</h1>
-      <%= form_for(@job, url: {action: 'update'}) do |f| %>
-        <% if @job.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+<h1>Editing job</h1>
+<%= form_for(@job, url: {action: 'update'}) do |f| %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
 
-            <ul>
-            <% @job.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <%= render 'form', f: f %>
+      <ul>
+      <% @job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
-      <%= link_to 'Show', company_job_path(id: @job.id) %> |
-      <%= link_to 'Back', company_jobs_path %>
+      </ul>
     </div>
-    <%= render 'companies/footer'%>
-  </div>  
-
-</div>
-
-
+  <% end %>
+  <%= render 'form', f: f %>
+<% end %>
+<%= link_to 'Show', company_job_path(id: @job.id) %> |
+<%= link_to 'Back', company_jobs_path %>

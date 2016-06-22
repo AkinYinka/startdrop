@@ -1,9 +1,3 @@
-<div class="wrapper">
-	<%= render 'companies/sidebar'%>
-	<div class="main-panel">
-		<%= render 'companies/navigation'%>
-
-		<div class="content">
 			<p id="notice"><%= notice %></p>
 			<%= @submission.user %>
 			<%= video_tag @submission.videos, size: "500x320", controls: true, autobuffer: true %>
@@ -11,8 +5,4 @@
 			<%= link_to 'Back', company_job_submissions_path %>			
 		</div>
 
-		<%= render 'companies/footer'%>
-	</div>	
-
-</div>
 
