@@ -10,6 +10,7 @@ module Startdrop
   class Application < Rails::Application
 
   # config.middleware.insert 0, Rack::UTF8Sanitizer, sanitizable_content_types: ['multipart/form-data']
+  config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
 
     # Settings in config/environments/* take precedence over those specified here.
