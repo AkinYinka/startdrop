@@ -10,9 +10,15 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery-1.10.2
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-
+//= require bootstrap-checkbox-radio
+//= require bootstrap-notify
+//= require bootstrap.min
+//= require chartist.min
+//= require demo
+//= require paper-dashboard
 
 //= require_tree .

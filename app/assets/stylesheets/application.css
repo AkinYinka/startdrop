@@ -10,6 +10,11 @@
   * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
   * file per style scope.
   *
+  *= require_animate
+  *= require_bootstrap
+  *= require_demo
+  *= require_paper-dashboard
+  *= require_themify-icons
   *= require_tree .
   *= require_self
   */
