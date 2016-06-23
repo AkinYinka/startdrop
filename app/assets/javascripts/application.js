@@ -12,13 +12,19 @@
 //
 //= require jquery-1.10.2
 //= require jquery
+//= require material-kit/jquery.min
 //= require jquery_ujs
 //= require turbolinks
+
 //= require bootstrap-checkbox-radio
 //= require bootstrap-notify
 //= require bootstrap.min
 //= require chartist.min
 //= require demo
 //= require paper-dashboard
+//= require material-kit/material.min
+//= require material-kit/nouislider.min
+//= require material-kit/bootstrap-datepicker
+//= require material-kit/material-kit
 
 //= require_tree .
