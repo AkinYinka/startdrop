@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_company!
-
+    layout 'dashboard'
   # GET /jobs
   # GET /jobs.json
   def index
